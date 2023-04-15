@@ -1,5 +1,14 @@
 ﻿interface ISwiperEaseOptions {
-    //
+    slide?: {
+        margin?: number,
+        transitionDelay?: number,
+        activeIndex?: number
+    },
+
+    navigation?: {
+        prev: string,
+        next: string
+    }
 }
 
 class SwiperEase {
