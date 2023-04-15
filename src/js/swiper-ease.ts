@@ -89,11 +89,11 @@ class SwiperEase {
     }
     
     slideTo(index: number) {
-        const newIndex = Math.min(Math.max(index, 0), this.slidesCount - 1);
-        this.activeIndex = newIndex;
-
-        //newIndex !== index
-        console.log(newIndex);
+        if (this.activeIndex === index) {
+            return;
+        }
+        
+        this.activeIndex = Math.min(Math.max(index, 0), this.slidesCount - 1);
         this.updateTransform();
     }
     
