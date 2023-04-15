@@ -63,7 +63,29 @@ class SwiperEase {
     }
     
     private updateTransform() {
-        this.wrapper.style.transform = `translateX(-${this.activeIndex * (this.slideWidth + 30)}px)`;
+        this.wrapper.style.transform = `translateX(-${this.activeIndex * (this.slideWidth + this.options.slide.margin)}px)`;
+    }
+    
+    private updateCssProperty() {
+        this.wrapper.style.transition = 'unset';
+        
+        const slideWidth = this.slideWidth = this.wrapper.offsetWidth;
+        let resultStyles = `--swiper-ease-slide-width: ${slideWidth}px;`
+        
+        const slideMargin = this.options.slide.margin;
+        if (slideMargin !== defaultSwiperOptions.slide.margin) {
+            resultStyles += `--swiper-ease-slide-margin: ${slideMargin}px;`
+        }
+
+        const slideTransitionDelay = this.options.slide.margin;
+        if (slideTransitionDelay !== defaultSwiperOptions.slide.margin) {
+            resultStyles += `--swiper-ease-slide-transition-delay: ${slideTransitionDelay / 1000}s;`
+        }
+        
+        this.swiper.setAttribute('style', resultStyles);
+        this.updateTransform();
+
+        this.wrapper.style.transition = '';
     }
     
     slideTo(index: number) {
