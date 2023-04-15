@@ -34,16 +34,14 @@ class SwiperEase {
     private slideWidth: number;
     private activeIndex: number;
     
-    constructor(selector: string, options: ISwiperEaseOptions) {
-        const swiper = document.querySelector(selector);
-        this.wrapper = swiper.querySelector('.swiper-ease-wrapper');
-        this.navigation = {
-            prev: swiper.querySelector('.swiper-ease-btn_prev'),
-            next: swiper.querySelector('.swiper-ease-btn_next')
-        }
-        const slideWidth = this.slideWidth = this.wrapper.offsetWidth;
-        swiper.setAttribute('style', `--swiper-ease-slide-width: ${slideWidth}px`);
-        this.slides = swiper.querySelectorAll('.swiper-ease-slide');
+    constructor(selector: string, options: ISwiperEaseOptions = {}) {
+        this.options = {
+            ...defaultSwiperOptions,
+            ...options
+        };
+        this.swiper = document.querySelector(selector);
+        this.wrapper = this.swiper.querySelector('.swiper-ease-wrapper');
+        this.slides = this.swiper.querySelectorAll('.swiper-ease-slide');
         this.slidesCount = this.slides.length;
         
         
