@@ -1,4 +1,8 @@
-﻿class SwiperEase {
+﻿interface ISwiperEaseOptions {
+    //
+}
+
+class SwiperEase {
     constructor() {
     }
 }
