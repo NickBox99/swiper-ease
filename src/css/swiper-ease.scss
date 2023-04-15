@@ -1,1 +1,28 @@
-﻿.swiper-ease {}
+﻿@import "./root";
+
+.swiper-ease {
+  overflow: hidden;
+}
+
+.swiper-ease-wrapper {
+  display: flex;
+}
+
+.swiper-ease-slide {
+  flex-shrink: 0;
+  width: var(--swiper-ease-slide-width);
+  
+  &:not(:last-child) {
+    margin-right: var(--swiper-ease-slide-margin);
+  }
+}
+
+.swiper-ease-btn {
+  display: inline-block;
+  margin-right: 20px;
+  user-select: none;
+  width: 100px;
+  height: 20px;
+  border: 1px solid;
+  cursor: pointer;
+}
