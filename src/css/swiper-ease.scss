@@ -28,8 +28,17 @@ img.swiper-ease-slide {
 }
 
 .swiper-ease-btn {
-  display: inline-block;
-  margin-right: 20px;
+  position: absolute;
+  top: 50%;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  color: red;
+  border: 1px solid $blue;
+  border-radius: 50%;
   user-select: none;
   width: 100px;
   height: 20px;
