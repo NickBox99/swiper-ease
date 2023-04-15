@@ -13,6 +13,7 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             title: 'Swiper ease',
+            template: 'src/index.html'
         }),
     ],
     
@@ -36,8 +37,20 @@ module.exports = {
                 ],
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                test: /\.(png|jpg|gif|svg|eot|ttf|woff)$/,
+                type: 'asset/resource'
+            },
+
+            {
+                test:/\.html$/,
+                use: [
+                    'html-loader'
+                ]
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
         ],
     },
