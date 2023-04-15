@@ -47,10 +47,19 @@ class SwiperEase {
 
         const { navigation } = options;
         
+        this.navigation = navigation? {
+            prev: document.querySelector(navigation.prev),
+            next: document.querySelector(navigation.next)
+        } : {
+            prev: this.swiper.querySelector(defaultSwiperOptions.navigation.prev),
+            next: this.swiper.querySelector(defaultSwiperOptions.navigation.next)
+        }
+
+        this.navigation.next?.addEventListener('click', this.slideNext.bind(this));
+        this.navigation.prev?.addEventListener('click', this.slidePrev.bind(this));
         
-        //-----------
-        this.navigation.next.addEventListener('click', () => this.slideNext());
-        this.navigation.prev.addEventListener('click', () => this.slidePrev());
+        this.updateCssProperty();
+        window.addEventListener('resize', this.updateCssProperty.bind(this));
     }
     
     private updateTransform() {
