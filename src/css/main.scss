@@ -2,10 +2,12 @@
 
 body {
   margin: 0;
+  padding: 50px 0;
   background: lightgray;
 }
 
 .container {
   margin: 0 auto;
-  width: 1000px;
+  max-width: 1000px;
+  width: 100%;
 }
