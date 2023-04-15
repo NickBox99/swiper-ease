@@ -28,4 +28,31 @@ class SwiperEase {
         this.navigation.next.addEventListener('click', () => this.slideNext());
         this.navigation.prev.addEventListener('click', () => this.slidePrev());
     }
+    
+    private updateTransform() {
+        this.wrapper.style.transform = `translateX(-${this.activeIndex * (this.slideWidth + 30)}px)`;
+    }
+    
+    slideTo(index: number) {
+        const newIndex = Math.min(Math.max(index, 0), this.slidesCount - 1);
+        this.activeIndex = newIndex;
+
+        //newIndex !== index
+        console.log(newIndex);
+        this.updateTransform();
+    }
+    
+    slidePrev() {
+        this.slideTo(this.activeIndex - 1);
+    }
+    
+    slideNext() {
+        this.slideTo(this.activeIndex + 1);
+    }
 }
+
+(window as unknown as any).swiper = new SwiperEase('.swiper-ease', {
+    
+});
+
+console.log((window as unknown as any).swiper);
