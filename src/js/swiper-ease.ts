@@ -25,10 +25,11 @@ const defaultSwiperOptions: ISwiperEaseOptions = {
 
 
 class SwiperEase {
-    private wrapper: HTMLElement;
-    private navigation: { next: HTMLElement; prev: HTMLElement };
-    private activeIndex = 1;
-    private slides: NodeListOf<HTMLElement>;
+    private readonly options: ISwiperEaseOptions;
+    private readonly swiper: HTMLElement;
+    private readonly wrapper: HTMLElement;
+    private readonly navigation: { next: HTMLElement; prev: HTMLElement };
+    private readonly slides: NodeListOf<HTMLElement>;
     private readonly slidesCount: number;
     private readonly slideWidth: number;
     
