@@ -43,7 +43,9 @@ class SwiperEase {
         this.wrapper = this.swiper.querySelector('.swiper-ease-wrapper');
         this.slides = this.swiper.querySelectorAll('.swiper-ease-slide');
         this.slidesCount = this.slides.length;
-        
+        this.activeIndex = this.options.slide.activeIndex;
+
+        const { navigation } = options;
         
         
         //-----------
