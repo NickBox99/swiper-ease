@@ -31,7 +31,8 @@ class SwiperEase {
     private readonly navigation: { next: HTMLElement; prev: HTMLElement };
     private readonly slides: NodeListOf<HTMLElement>;
     private readonly slidesCount: number;
-    private readonly slideWidth: number;
+    private slideWidth: number;
+    private activeIndex: number;
     
     constructor(selector: string, options: ISwiperEaseOptions) {
         const swiper = document.querySelector(selector);
