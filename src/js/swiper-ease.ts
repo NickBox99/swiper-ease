@@ -11,6 +11,19 @@
     }
 }
 
+const defaultSwiperOptions: ISwiperEaseOptions = {
+    slide: {
+        margin: 30,
+        transitionDelay: 500,
+        activeIndex: 0
+    },
+    navigation: {
+        prev: '.swiper-ease-btn_prev',
+        next: '.swiper-ease-btn_next'
+    }
+}
+
+
 class SwiperEase {
     private wrapper: HTMLElement;
     private navigation: { next: HTMLElement; prev: HTMLElement };
